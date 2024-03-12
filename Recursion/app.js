@@ -1,3 +1,19 @@
+const callStack = [
+  `a(): returns "freeCodeCamp " + b()`,
+  `b(): returns "is " + c()`,
+  `c(): returns "awesome!"`,
+];
+
+const a = function () {
+  return "freeCodeCamp " + b();
+};
+const b = function () {
+  return "is " + c();
+};
+const c = function () {
+  return "awesome!";
+};
+console.log(a());
 const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
