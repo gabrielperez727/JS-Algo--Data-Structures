@@ -3,25 +3,15 @@ const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
 
 const decimalToBinary = function (input) {
-  const inputs = [];
-  const quotients = [];
-  const remainders = [];
+  let binary = "";
   if (input === 0) {
-    result.innerText = "0";
-    return;
+    binary = "0";
   }
   while (input > 0) {
-    const remainder = input % 2;
-    const quotient = Math.floor(input / 2);
-    input = quotient;
-    inputs.push(input);
-    quotients.push(quotient);
-    remainders.push(remainder);
-    console.log("Inputs:", inputs);
-    console.log("Remainders:", remainders);
-    console.log("Quotients:", quotients);
-    result.innerText = remainders.reverse().join("");
+    input = Math.floor(input / 2);
+    binary = (input % 2) + binary;
   }
+  result.innerText = binary;
 };
 
 const checkUserInput = function () {
