@@ -1,22 +1,18 @@
-const callStack = [
-  `a(): returns "freeCodeCamp " + b()`,
-  `b(): returns "is " + c()`,
-  `c(): returns "awesome!"`,
-];
-
-const a = function () {
-  return "freeCodeCamp " + b();
-};
-const b = function () {
-  return "is " + c();
-};
-const c = function () {
-  return "awesome!";
-};
-console.log(a());
 const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
+
+const countDownAndUp = function (number) {
+  console.log(number);
+  if (number === 0) {
+    return console.log("Reached base case");
+  } else {
+    countDownAndUp(number - 1);
+    console.log(number);
+  }
+};
+
+countDownAndUp(3);
 
 const decimalToBinary = function (input) {
   let binary = "";
@@ -25,7 +21,7 @@ const decimalToBinary = function (input) {
   }
   while (input > 0) {
     input = Math.floor(input / 2);
-    binary = (input % 2) + binary;
+    binary += input % 2;
   }
   result.innerText = binary;
 };
