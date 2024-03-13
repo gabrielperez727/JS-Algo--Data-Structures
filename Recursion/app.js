@@ -2,28 +2,12 @@ const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
 
-const countDownAndUp = function (number) {
-  console.log(number);
-  if (number === 0) {
-    return console.log("Reached base case");
-  } else {
-    countDownAndUp(number - 1);
-    console.log(number);
-  }
-};
-
-countDownAndUp(3);
-
 const decimalToBinary = function (input) {
-  let binary = "";
   if (input === 0) {
-    binary = "0";
+    return "";
+  } else {
+    return decimalToBinary(Math.floor(input / 2)) + (input % 2);
   }
-  while (input > 0) {
-    input = Math.floor(input / 2);
-    binary += input % 2;
-  }
-  result.innerText = binary;
 };
 
 const checkUserInput = function () {
@@ -32,7 +16,7 @@ const checkUserInput = function () {
     alert("Please provide a decimal number");
     return;
   }
-  decimalToBinary(parseInt(numberInput.value));
+  result.textContent = decimalToBinary(parseInt(numberInput.value));
   numberInput.value = "";
 };
 
