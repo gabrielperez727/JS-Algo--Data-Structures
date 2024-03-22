@@ -31,3 +31,4 @@ const charRange = (start, end) =>
   );
 
 const sum = (nums) => nums.reduce((acc, el) => acc + el);
+const isEven = (num) => (num % 2 === 0 ? true : false);
