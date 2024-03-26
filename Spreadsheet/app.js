@@ -36,7 +36,16 @@ const infixToFunction = {
   "*": (x, y) => x * y,
   "/": (x, y) => x / y,
 };
+const infixEval = (str, regex) =>
+  str.replace(regex, (_match, arg1, operator, arg2) =>
+    infixToFunction[operator](parseFloat(arg1), parseFloat(arg2))
+  );
 
+const highPrecedence = (str) => {
+  const regex = /([\d.]+)([*\/])([\d.]+)/;
+  const str2 = infixEval(str, regex);
+  return str2 === str ? str : highPrecedence(str2);
+};
 const sum = (nums) => nums.reduce((acc, el) => acc + el);
 const isEven = (num) => (num % 2 === 0 ? true : false);
 const average = (nums) => sum(nums) / nums.length;
