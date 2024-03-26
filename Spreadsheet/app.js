@@ -30,6 +30,12 @@ const charRange = (start, end) =>
   range(start.charCodeAt(0), end.charCodeAt(0)).map((code) =>
     String.fromCharCode(code)
   );
+const infixToFunction = {
+  "+": (x, y) => x + y,
+  "-": (x, y) => x - y,
+  "*": (x, y) => x * y,
+  "/": (x, y) => x / y,
+};
 
 const sum = (nums) => nums.reduce((acc, el) => acc + el);
 const isEven = (num) => (num % 2 === 0 ? true : false);
